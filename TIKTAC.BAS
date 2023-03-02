@@ -37,25 +37,28 @@ LOCATE 22, 40
 PRINT "X"
 ELSEIF x = 11 THEN
 END
-ELSEIF x = p THEN
-PRINT "ARELADY TAKEN WRITE AGAIN"
-ELSEIF x = x THEN
-PRINT "already taken"
 ELSE
 PRINT "INVALID"
 GOTO main
 END IF
+LOCATE 1, 1
+PRINT "YOU CHOOSED"; x
 p = computer(x)
-IF p = x THEN
-p = compuer(x)
-END IF
-WHILE x <> 11
 GOTO main
-WEND
-
-
-
-
+IF x = x THEN
+PRINT "ALREADY TAKEN DUDE!"
+GOTO main
+ELSEIF x = p THEN
+PRINT "TAKEN"
+GOTO main
+END IF
+IF p = p THEN
+p = computer(x)
+ELSEIF p = x THEN
+PRINT "WORKING"
+p = computer(x)
+GOTO main
+END IF
 
 FUNCTION computer (x)
 RANDOMIZE TIMER
@@ -88,5 +91,7 @@ ELSEIF x = 9 THEN
 LOCATE 22, 40
 PRINT "0"
 END IF
+LOCATE 2, 2
+PRINT "COMPUTER CHOOSED"; x
 END FUNCTION
 
