@@ -1,5 +1,7 @@
 DIM choiced(9)
 DIM userchoice
+DIM player1(9)
+DIM play2(9)
 CLS
 SCREEN 12
 LINE (100, 200)-(400, 200)
@@ -21,6 +23,7 @@ DO
         PRINT "ALREADY ENTERED NUMBER"
         ELSE
         choiced(userchoice) = -1
+        player1(userchoice) = 1
         GOTO here
         END IF
        
@@ -72,11 +75,12 @@ DO
         ELSEIF player2 = userchoice THEN
         PRINT "ALREADY ENTERED NUMBER"
         ELSE
-        choiced(userchoice) = -1
-        GOTO player2
+        choiced(player2) = -1
+        play2(player2) = 1
+        GOTO player22
         END IF
 LOOP
-player2:
+player22:
 SELECT CASE player2
 CASE 1
 LOCATE 12, 20
@@ -106,5 +110,16 @@ CASE 9
 LOCATE 22, 40
 PRINT "0"
 END SELECT
+GOTO win
+
+win:
+IF choiced(1) = userchoice THEN
+LOCATE 12, 12
+PRINT "PLAYER 2 wins "
+END
+ELSE
 GOTO main
+
+END IF
+
 
