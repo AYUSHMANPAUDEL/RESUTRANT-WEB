@@ -60,8 +60,18 @@ CASE 9
 LOCATE 22, 40
 PRINT "X"
 END SELECT
+GOTO win1
+win1:
+IF (player1(1) = 1 AND player1(2) = 1 AND player1(3) = 1) OR (player1(4) = 1 AND player1(5) = 1 AND player1(6) = 1) OR (player1(7) = 1 AND player1(8) = 1 AND player1(9) = 1) OR (player1(1) = 1 AND player1(4) = 1 AND player1(7) = 1) OR (player1(2) = 1 AND player1(5) = 1 AND player1(8) = 1) OR (player1(3) = 1 AND player1(6) = 1 AND player1(9) = 1) OR (player1(1) = 1 AND player1(5) = 1 AND player1(9) = 1) OR (player1(3) = 1 AND player1(5) = 1 AND player1(7) = 1) THEN
+   LOCATE 4, 27
+   PRINT "Player 1 wins"
+   END
+   ELSEIF (choiced(1) = 1 AND choiced(2) = 1 AND choiced(3) = 1 AND choiced(4) = 1 AND choiced(5) = 1 AND choiced(6) = 1 AND choiced(7) = 1 AND choiced(8) = 1 AND choiced(9) = 1) THEN
+   PRINT "GAME TIED"
+   END
+  ELSE
 GOTO check
-
+END IF
 check:
 DO
    LOCATE 5, 40
@@ -112,14 +122,22 @@ PRINT "0"
 END SELECT
 GOTO win
 
-win:
-IF choiced(1) = userchoice THEN
-LOCATE 12, 12
-PRINT "PLAYER 2 wins "
-END
-ELSE
-GOTO main
 
+win:
+IF (play2(1) AND play2(2) AND play2(3)) OR (play2(4) AND play2(5) AND play2(6)) OR (play2(7) AND play2(8) AND play2(9)) OR (play2(1) AND play2(4) AND play2(7)) OR (play2(2) AND play2(5) AND play2(8)) OR (play2(3) AND play2(6) AND play2(9)) OR (play2(1) AND play2(5) AND play2(9)) OR (play2(3) AND play2(5) AND play2(7)) THEN
+
+
+   LOCATE 4, 27
+   PRINT "PLAYER 2 WINS!"
+   END
+   ELSEIF (choiced(1) = 1 AND choiced(2) = 1 AND choiced(3) = 1 AND choiced(4) = 1 AND choiced(5) = 1 AND choiced(6) = 1 AND choiced(7) = 1 AND choiced(8) = 1 AND choiced(9) = 1) THEN
+   PRINT "GAME TIED"
+   END
+ELSE
+   GOTO main
 END IF
+
+
+
 
 
