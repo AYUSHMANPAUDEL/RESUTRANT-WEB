@@ -66,11 +66,12 @@ IF (player1(1) = 1 AND player1(2) = 1 AND player1(3) = 1) OR (player1(4) = 1 AND
    LOCATE 4, 27
    PRINT "Player 1 wins"
    END
-   ELSEIF (choiced(1) = 1 AND choiced(2) = 1 AND choiced(3) = 1 AND choiced(4) = 1 AND choiced(5) = 1 AND choiced(6) = 1 AND choiced(7) = 1 AND choiced(8) = 1 AND choiced(9) = 1) THEN
+   ELSEIF (choiced(1) = -1 AND choiced(2) = -1 AND choiced(3) = -1 AND choiced(4) = -1 AND choiced(5) = -1 AND choiced(6) = -1 AND choiced(7) = -1 AND choiced(8) = -1 AND choiced(9) = -1) THEN
+   LOCATE 4, 27
    PRINT "GAME TIED"
    END
   ELSE
-GOTO check
+  GOTO check
 END IF
 check:
 DO
@@ -136,8 +137,6 @@ IF (play2(1) AND play2(2) AND play2(3)) OR (play2(4) AND play2(5) AND play2(6)) 
 ELSE
    GOTO main
 END IF
-
-
 
 
 
