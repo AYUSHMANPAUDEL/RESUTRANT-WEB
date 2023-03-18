@@ -2,11 +2,14 @@ DECLARE SUB Multiplayer (x)
 DECLARE SUB Computer (y)
 CLS
 topg:
-PRINT "---------TIC TAC TOE-----------"
-PRINT "1)Play With Friends (multiplayer)"
-PRINT "2)Play with computer(easy level)"
-PRINT "3)exit"
-INPUT "what you want to do?"; x
+LOCATE 1, 1: COLOR 11: PRINT "---------TIC TAC TOE-----------"
+    COLOR 15: PRINT "1) ";
+    COLOR 14: PRINT "Play With Friends (multiplayer)"
+    COLOR 15: PRINT "2) ";
+    COLOR 14: PRINT "Play with computer(easy level)"
+    COLOR 15: PRINT "3) ";
+    COLOR 14: PRINT "exit"
+    INPUT "What would you like to do? ", x
 SELECT CASE x
 CASE 1
 CALL Multiplayer(x)
@@ -58,6 +61,10 @@ LOCATE 8.3, 76
 PRINT "9"
 LINE (539, 15)-(539, 135)
 LINE (589, 15)-(589, 135)
+LOCATE 15, 65
+PRINT "HUMAN = X"
+LOCATE 17, 65
+PRINT "COMPUTER = O "
 LOCATE 1, 1
 PRINT "Enter your choice from 1 to 9. Press 0 to exit "
 main1:
@@ -116,11 +123,11 @@ win11:
 IF (player1(1) = 1 AND player1(2) = 1 AND player1(3) = 1) OR (player1(4) = 1 AND player1(5) = 1 AND player1(6) = 1) OR (player1(7) = 1 AND player1(8) = 1 AND player1(9) = 1) OR (player1(1) = 1 AND player1(4) = 1 AND player1(7) = 1) OR (player1(2) = 1 AND player1(5) = 1 AND player1(8) = 1) OR (player1(3) = 1 AND player1(6) = 1 AND player1(9) = 1) OR (player1(1) = 1 AND player1(5) = 1 AND player1(9) = 1) OR (player1(3) = 1 AND player1(5) = 1 AND player1(7) = 1) THEN
    LOCATE 4, 27
    PRINT "Player 1 wins"
-   END
+   GOTO last12
    ELSEIF (choiced(1) = -1 AND choiced(2) = -1 AND choiced(3) = -1 AND choiced(4) = -1 AND choiced(5) = -1 AND choiced(6) = -1 AND choiced(7) = -1 AND choiced(8) = -1 AND choiced(9) = -1) THEN
    LOCATE 28, 32
    PRINT "GAME TIED"
-   END
+   GOTO last12
   ELSE
   GOTO check11
 END IF
@@ -132,7 +139,7 @@ DO
 	IF player2 < 0 OR player2 > 9 THEN
 	PRINT "INVALID INPUT . ALre7ady mentioned enter your choice from 1 to 9."
 	ELSEIF player2 = 0 THEN
-	GOTO last1
+	GOTO last12
 	ELSEIF choiced(player2) THEN
 	GOTO check11
 	ELSEIF player2 = userchoice THEN
@@ -181,16 +188,28 @@ IF (play2(1) AND play2(2) AND play2(3)) OR (play2(4) AND play2(5) AND play2(6)) 
 
 
    LOCATE 4, 27
-   PRINT "PLAYER 2 WINS!"
-   GOTO last1
+   PRINT "COMPUTER WINS!"
+   GOTO last12
    ELSEIF choiced(1) AND choiced(2) AND choiced(3) AND choiced(4) AND choiced(5) AND choiced(6) AND choiced(7) AND choiced(8) AND choiced(9) THEN
    LOCATE 28, 12
    PRINT "GAME TIED"
-   GOTO last1
+   GOTO last12
 ELSE
    GOTO main1
 END IF
-last1:
+last12:                                                                                                                                                                                                                                                                                                                            
+om = 5
+kaka = 1
+FOR om = 5 TO 1 STEP -1
+   LOCATE 3, 23
+  PRINT "GOING-BACK IN"; om
+  kaka = kaka + 1
+  SLEEP 1
+NEXT om
+IF kaka = 5 THEN
+GOTO antim
+END IF
+antim:
 END SUB
 
 SUB Multiplayer (x)
@@ -226,8 +245,10 @@ LOCATE 8.3, 76
 PRINT "9"
 LINE (539, 15)-(539, 135)
 LINE (589, 15)-(589, 135)
-
-
+LOCATE 15, 65
+PRINT "PLAYER ONE = X "
+LOCATE 17, 65
+PRINT "PLAYER TWO = O"
 LOCATE 1, 1
 PRINT "Enter your choice from 1 to 9. Press 0 to exit "
 main:
@@ -357,18 +378,18 @@ IF (play2(1) AND play2(2) AND play2(3)) OR (play2(4) AND play2(5) AND play2(6)) 
 ELSE
    GOTO main
 END IF
-last11:                                                                                                                                                                                                                                                                                                                             
+last11:                                                                                                                                                                                                                                                                                                                            
 om = 5
 kaka = 1
 FOR om = 5 TO 1 STEP -1
    LOCATE 3, 23
-  PRINT "EXITING IN"; om
+  PRINT "GOING-BACK IN"; om
   kaka = kaka + 1
   SLEEP 1
 NEXT om
 IF kaka = 5 THEN
-GOTO antim
+GOTO antim1
 END IF
-antim:
+antim1:
 END SUB
 
